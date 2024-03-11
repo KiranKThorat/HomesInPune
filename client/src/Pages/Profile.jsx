@@ -21,6 +21,8 @@ import { useDispatch } from 'react-redux';
 export default function Profile() {
   const fileRef = useRef(null);
   const { currentUser, loading, error } = useSelector((state) => state.user);
+  const adminid = "65dd84cb2aa30f1dd1a669cd"; 
+  const isCurrentUser = adminid === currentUser._id;
   const [file, setFile] = useState(undefined);
   const [filePerc, setFilePerc] = useState(0);
   const [fileUploadError, setFileUploadError] = useState(false);
@@ -150,6 +152,7 @@ export default function Profile() {
       console.log(error.message);
     }
   };
+  
   return (
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
@@ -209,12 +212,15 @@ export default function Profile() {
         >
           {loading ? 'Loading...' : 'Update'}
         </button>
+        {isCurrentUser && (
+
         <Link
           className='bg-blue-500 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
           to={'/create-listing'}
         >
                     Create Listing
         </Link>
+        )}
       </form>
       <div className='flex justify-between mt-5'>
       <span
@@ -229,9 +235,11 @@ export default function Profile() {
       <p className='text-green-700 mt-5'>
         {updateSuccess ? 'User is updated successfully!' : ''}
       </p>
+      {isCurrentUser && (
       <button onClick={handleShowListings} className='text-slate-700  w-full'>
         Show Listings
       </button>
+      )}
       <p className='text-red-700 mt-5'>
         {showListingsError ? 'Error showing listings' : ''}
       </p>

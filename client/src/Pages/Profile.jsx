@@ -236,7 +236,7 @@ export default function Profile() {
         {updateSuccess ? 'User is updated successfully!' : ''}
       </p>
       {isCurrentUser && (
-      <button onClick={handleShowListings} className='text-slate-700  w-full'>
+      <button onClick={handleShowListings} className='text-slate-700 hover:underline   w-full'>
         Show Listings
       </button>
       )}
@@ -251,7 +251,7 @@ export default function Profile() {
           {userListings.map((listing) => (
             <div
               key={listing._id}
-              className='border rounded-lg p-3 flex justify-between items-center gap-4'
+              className=' border-2 border-teal-950 rounded-lg p-3 flex justify-between items-center gap-4'
              >
               <Link to={`/listing/${listing._id}`}>
                 <img
@@ -268,15 +268,15 @@ export default function Profile() {
                 <p>{listing.name}</p>
               </Link>
 
-              <div className='flex flex-col item-center'>
+              <div className='flex flex-col item-center p-3 max-w-lg mx-auto'>
                 <button
                   onClick={() => handleListingDelete(listing._id)}
-                  className='text-red-700 uppercase'
+                  className='bg-red-500 text-white p-1 m-1 rounded-lg uppercase text-center hover:opacity-95'
                 >
                   Delete
                 </button>
                 <Link to={`/update-listing/${listing._id}`}>
-                  <button className='text-green-700 uppercase'>Edit</button>
+                  <button className='bg-blue-500 text-white p-1 m-1 rounded-lg uppercase text-center hover:opacity-95'>Edit</button>
                 </Link>
               </div>
             </div>

@@ -9,11 +9,10 @@ import {
   FaToilet,
   FaBed,
   FaChair,
-  FaMapMarkedAlt,
   FaMapMarkerAlt,
   FaParking,
   FaShare,
-  FaUserTie
+  FaHome 
 } from 'react-icons/fa';
 import Contact from '../components/Contact';
 
@@ -87,9 +86,9 @@ export default function Listing() {
               Link copied!
             </p>
           )}
-          <div className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>
+          <div className='flex flex-col max-w-6xl mx-auto p-4 my-7 gap-4'>
             <p className='text-2xl font-semibold'>
-             <p className='flex items-center mt-6 gap-2 text-gray-900'><FaUserTie />{listing.name} </p>
+             <p className='flex items-center mt-6 gap-2 text-gray-900'><FaHome />{listing.name} </p>
               ₹{' '}
               {listing.offer
                 ? listing.discountPrice.toLocaleString('en-US')
@@ -101,7 +100,7 @@ export default function Listing() {
               {listing.address}
             </p>
             <div className='flex gap-4'>
-              <p className='bg-blue-500 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
+              <p className='bg-gray-700 w-72 max-w-[200px] text-white text-center p-1 rounded-lg'>
                 {listing.type === 'rent' ? 'For Rent' : 'For Sale'}
               </p>
               {listing.offer && (
@@ -136,10 +135,12 @@ export default function Listing() {
                 {listing.furnished ? 'Furnished' : 'Unfurnished'}
               </li>
             </ul>
-            {/* {currentUser && listing.userRef !== currentUser._id && !contact && ()} */}
-              <button onClick={()=>setContact(true)} className='bg-green-500 text-white rounded-lg uppercase hover:opacity-95 p-3'>
+            {/* {currentUser && listing.userRef !== currentUser._id && !contact && ( */}
+
+              <button onClick={()=>setContact(true)} className='bg-green-500 text-white rounded-lg uppercase hover:opacity-85 p-3'>
                 Contact Owner
               </button>
+            {/* )} */}
             
             {contact && <Contact listing={listing}/>}
           </div>

@@ -208,14 +208,14 @@ export default function Profile() {
         />
          <button
           disabled={loading}
-          className='bg-green-400 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
+          className='bg-green-400 text-white rounded-lg p-3 uppercase hover:opacity-85 disabled:opacity-80'
         >
           {loading ? 'Loading...' : 'Update'}
         </button>
         {isCurrentUser && (
 
         <Link
-          className='bg-blue-500 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
+          className='bg-blue-500 text-white p-3 rounded-lg uppercase text-center hover:opacity-85'
           to={'/create-listing'}
         >
                     Create Listing
@@ -225,11 +225,11 @@ export default function Profile() {
       <div className='flex justify-between mt-5'>
       <span
           onClick={handleDeleteUser}
-          className='text-red-700 cursor-pointer text-lg border-red-900'
+          className='text-red-700 cursor-pointer hover:underline  text-lg border-red-900'
         >
           Delete account
         </span>
-        <span onClick={handleSignOut} className='text-blue-700 cursor-pointer text-lg border-blue-900'>Sign out</span>
+        <span onClick={handleSignOut} className='text-blue-700 hover:underline  cursor-pointer text-lg border-blue-900'>Sign out</span>
       </div>
       <p className='text-red-700 mt-5'>{error ? error : ''}</p>
       <p className='text-green-700 mt-5'>
@@ -271,12 +271,12 @@ export default function Profile() {
               <div className='flex flex-col item-center p-3 max-w-lg mx-auto'>
                 <button
                   onClick={() => handleListingDelete(listing._id)}
-                  className='bg-red-500 text-white p-1 m-1 rounded-lg uppercase text-center hover:opacity-95'
+                  className='bg-red-500 text-white p-1 m-1 rounded-lg uppercase text-center hover:opacity-85'
                 >
                   Delete
                 </button>
                 <Link to={`/update-listing/${listing._id}`}>
-                  <button className='bg-blue-500 text-white p-1 m-1 rounded-lg uppercase text-center hover:opacity-95'>Edit</button>
+                  <button className='bg-blue-500 text-white p-1 m-1 rounded-lg uppercase text-center hover:opacity-85'>Edit</button>
                 </Link>
               </div>
             </div>

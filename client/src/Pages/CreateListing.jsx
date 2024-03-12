@@ -271,8 +271,8 @@ export default function CreateListing() {
               <input
                 type='number'
                 id='regularPrice'
-                min='500'
-                max='50000'
+                min='1000'
+                max='50000000'
                 required
                 className='p-3 border border-gray-300 rounded-lg'
                 onChange={handleChange}
